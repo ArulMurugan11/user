@@ -8,12 +8,12 @@ const userSchema = new Schema({
     required: true,
   },
   email: {
-    type: string,
+    type: String,
     required: true,
     unique: true,
   },
   password: {
-    type: string,
+    type: String,
     required: true,
   },
   date: {
@@ -23,11 +23,11 @@ const userSchema = new Schema({
 });
 
 userSchema.set("toJSON", {
-  transform: (document, returnObject) => {
-    returnObject.id = returnObject._id.toString();
-    delete returnObject._id;
-    delete returnObject._v;
-    delete returnObject._password;
+  transform: (document, returnedObject) => {
+    returnedObject.id = returnedObject._id.toString();
+    delete returnedObject._id;
+    delete returnedObject.__v;
+    delete returnedObject._password;
   },
 });
 
