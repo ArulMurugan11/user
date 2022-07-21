@@ -2,7 +2,7 @@ const bcryptjs = require("bcryptjs");
 const userService = require("../services/userservice");
 
 exports.register = (req, res, next) => {
-  const { password } = req.body;
+  const { password } = req.body;   //abcd
   const salt = bcryptjs.genSaltSync(10);
   req.body.password = bcryptjs.hashSync(password, salt);
 

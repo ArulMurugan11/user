@@ -4,9 +4,9 @@ function authenticateToken(req, res, next) {
   const authHeader = req.headers["authorization"];
   const token = authHeader && authHeader.split(" ")[1];
   if (token == null) return res.sendStatus(401);
-  console.log("here error", token);
+  //console.log("here error", token);
   jwt.verify(token, "Snippet_SceretKEY", (err, user) => {
-    console.log("here error",err,user);
+  // console.log("here error",err,user);
     if (err) {
       //return res.send("here error");
       return res.sendStatus(403);
